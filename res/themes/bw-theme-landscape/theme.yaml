@@ -99,74 +99,101 @@ static_text:
     FONT_COLOR: 0, 0, 0
     BACKGROUND_COLOR: 192, 192, 192
 
+  LABEL_CPU_CLOCK:
+    TEXT: "Clock:"
+    X: 12
+    Y: 196
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lb
+  LABEL_CPU_TEMP:
+    TEXT: ""
+    X: 180
+    Y: 198
+    FONT: fontawesome-6/fa-solid-900.ttf
+    FONT_SIZE: 14
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lb
+  LABEL_CPU_LOAD:
+    TEXT: "Load:"
+    X: 12
+    Y: 218
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lb
+
 STATS:
   CPU:
-    INTERVAL: 1
     FREQUENCY:
+      INTERVAL: 1
       TEXT:
         SHOW: True
-        SHOW_UNIT: False
-        X: 300
-        Y: 60
-        WIDTH: 50
+        SHOW_UNIT: True
+        X: 55
+        Y: 184
+        WIDTH: 65
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
-        FONT_SIZE: 14
+        FONT_SIZE: 12
         FONT_COLOR: 0, 0, 0
         BACKGROUND_IMAGE: background.png
         ALIGN: right
-        ANCHOR: rm
-    FAN_SPEED:
-      TEXT:
+        ANCHOR: rb
+      GRAPH:
         SHOW: True
-        SHOW_UNIT: False
-        X: 458
-        Y: 60
-        WIDTH: 50
-        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
-        FONT_SIZE: 14
-        FONT_COLOR: 0, 0, 0
-        BACKGROUND_IMAGE: background.png
-        ALIGN: right
-        ANCHOR: rm
-    PERCENTAGE:
-      TEXT:
-        SHOW: True
-        SHOW_UNIT: False
-        X: 300
-        Y: 92
-        WIDTH: 50
-        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
-        FONT_SIZE: 14
-        FONT_COLOR: 0, 0, 0
-        BACKGROUND_IMAGE: background.png
-        ALIGN: right
-        ANCHOR: rm
+        X: 12
+        Y: 198
+        WIDTH: 108
+        HEIGHT: 5
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255      
     TEMPERATURE:
+      INTERVAL: 1
       TEXT:
         SHOW: True
-        SHOW_UNIT: False
-        X: 458
-        Y: 102
-        WIDTH: 50
+        SHOW_UNIT: True
+        X: 190
+        Y: 184
+        WIDTH: 40
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
-        FONT_SIZE: 14
+        FONT_SIZE: 12
         FONT_COLOR: 0, 0, 0
         BACKGROUND_IMAGE: background.png
         ALIGN: right
-        ANCHOR: rt
-    POWER:
+        ANCHOR: rb
+    PERCENTAGE:
+      INTERVAL: 1
       TEXT:
         SHOW: True
-        SHOW_UNIT: False
-        X: 300
-        Y: 124
-        WIDTH: 50
+        SHOW_UNIT: True
+        X: 52
+        Y: 206
+        WIDTH: 35
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
-        FONT_SIZE: 14
+        FONT_SIZE: 12
         FONT_COLOR: 0, 0, 0
         BACKGROUND_IMAGE: background.png
         ALIGN: right
-        ANCHOR: rm
+        ANCHOR: rb
+      GRAPH:
+        SHOW: True
+        X: 12
+        Y: 220
+        WIDTH: 218
+        HEIGHT: 5
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255   
+
   GPU:
     INTERVAL: 3
     FREQUENCY:
@@ -309,6 +336,44 @@ STATS:
         BACKGROUND_IMAGE: background.png
         ANCHOR: lb
 
+
+    CpuLoad1:
+      TEXT:
+        SHOW: True
+        X: 100
+        Y: 206
+        WIDTH: 40
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_COLOR: 0, 100, 0
+        # BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rb
+    CpuLoad5:
+      TEXT:
+        SHOW: True
+        X: 140
+        Y: 206
+        WIDTH: 40
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rb
+    CpuLoad15:
+      TEXT:
+        SHOW: True
+        X: 180
+        Y: 206
+        WIDTH: 50
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rb
 
     WireviewTempExternal1:
       TEXT:

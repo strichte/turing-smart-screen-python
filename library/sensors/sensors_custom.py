@@ -530,3 +530,35 @@ class WireviewTotalEnergy(WireviewDataSource):
     unit = "Wh"
     fmt = "{value:>10.2f}{unit}"
     null_width = 10
+
+
+class _LoadAvg(CustomDataSource):
+    """Linux load average exactly as top/uptime report it (1/5/15 min), 2 decimals."""
+    index = 0  # 0=1min, 1=5min, 2=15min ; set by subclass
+
+    def as_numeric(self) -> float:
+        try:
+            return float(os.getloadavg()[self.index])
+        except Exception:
+            return math.nan
+
+    def as_string(self) -> str:
+        try:
+            return f"{os.getloadavg()[self.index]:.2f}"
+        except Exception:
+            return "  --"
+
+    def last_values(self) -> List[float]:
+        return None  # no line graph
+
+
+class CpuLoad1(_LoadAvg):
+    index = 0
+
+
+class CpuLoad5(_LoadAvg):
+    index = 1
+
+
+class CpuLoad15(_LoadAvg):
+    index = 2
