@@ -446,6 +446,29 @@ STATS:
         BACKGROUND_IMAGE: background.png
         ALIGN: right
         ANCHOR: rb
+      RADIAL:
+        SHOW: True
+        X: 406
+        Y: 206
+        RADIUS: 23
+        WIDTH: 6
+        MIN_VALUE: 0
+        MAX_VALUE: 251.6
+        ANGLE_START: 120
+        ANGLE_END: 60
+        ANGLE_STEPS: 1
+        ANGLE_SEP: 0
+        CLOCKWISE: True
+        BAR_COLOR: 0, 0, 0
+        DRAW_BAR_BACKGROUND: True
+        BAR_BACKGROUND_COLOR: 200, 200, 200
+        SHOW_TEXT: True
+        SHOW_UNIT: False
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 10
+        FONT_COLOR: 0, 0, 0
+        # BACKGROUND_COLOR: 0, 100,0
+        BACKGROUND_IMAGE: background.png
       LINE_GRAPH:
         SHOW: True
         X: 344
@@ -824,20 +847,21 @@ STATS:
         BACKGROUND_IMAGE: background.png
         ALIGN: right
         ANCHOR: rm
-  # NET:
-    # INTERVAL: 1
-    # DOWNLOADED:
-    #   TEXT:
-    #     SHOW: True
-    #     X: 458
-    #     Y: 192
-    #     WIDTH: 65
-    #     FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
-    #     FONT_SIZE: 12
-    #     FONT_COLOR: 0, 0, 0
-    #     BACKGROUND_IMAGE: background.png
-    #     ALIGN: right
-    #     ANCHOR: rm
+  NET:
+    DOWNLOADED:
+      INTERVAL: 1
+      TEXT:
+        SHOW: True
+        X: 400
+        Y: 320
+        WIDTH: 65
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_COLOR: 0,100,0
+        # BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rm
     # UPLOADED:
     #   TEXT:
     #     SHOW: True
