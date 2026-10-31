@@ -23,7 +23,7 @@ static_text:
   GLYPH_GPU_THERMO:
     TEXT: ""
     X: 122
-    Y: 92
+    Y: 102
     FONT: fontawesome-6/fa-solid-900.ttf
     FONT_SIZE: 38
     FONT_COLOR: 0, 0, 0
@@ -31,7 +31,7 @@ static_text:
   TEXT_GPU_TEMP:
     TEXT: "GPU:"
     X: 150
-    Y: 92
+    Y: 102
     FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
     FONT_SIZE: 12
     FONT_COLOR: 0, 0, 0
@@ -40,7 +40,7 @@ static_text:
   TEXT_GPU_CABLE_TEMP:
     TEXT: "Cable:"
     X: 150
-    Y: 108
+    Y: 118
     FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
     FONT_SIZE: 12
     FONT_COLOR: 0, 0, 0
@@ -49,7 +49,7 @@ static_text:
   TEXT_GPU_CASE_TEMP:
     TEXT: "Case:"
     X: 150
-    Y: 124
+    Y: 134
     FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
     FONT_SIZE: 12
     FONT_COLOR: 0, 0, 0
@@ -119,7 +119,7 @@ STATS:
         SHOW: True
         SHOW_UNIT: False
         X: 458
-        Y: 92
+        Y: 102
         WIDTH: 50
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
         FONT_SIZE: 14
@@ -148,7 +148,7 @@ STATS:
         SHOW: True
         SHOW_UNIT: True
         X: 188
-        Y: 90
+        Y: 100
         WIDTH: 50
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
         FONT_SIZE: 12
@@ -211,7 +211,7 @@ STATS:
         SHOW: True
         SHOW_UNIT: True
         X: 188
-        Y: 106
+        Y: 116
         WIDTH: 50
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
         FONT_SIZE: 12
@@ -224,7 +224,7 @@ STATS:
         SHOW: True
         SHOW_UNIT: True
         X: 188
-        Y: 122
+        Y: 132
         WIDTH: 50
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
         FONT_SIZE: 12
@@ -233,6 +233,7 @@ STATS:
         ANCHOR: rt
         ALIGN: right             
     # Total GPU power — text
+    WireviewTotalPower:
       TEXT:
         SHOW: False
         SHOW_TEXT: False
