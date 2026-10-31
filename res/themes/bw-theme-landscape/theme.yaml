@@ -20,6 +20,33 @@ static_text:
     FONT_SIZE: 14
     FONT_COLOR: 0, 0, 0
     BACKGROUND_COLOR: 192, 192, 192
+  TEXT_CLOCK:
+    TEXT: "Clock:"
+    X: 12
+    Y: 100
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lb
+  TEXT_LOAD:
+    TEXT: "Load:"
+    X: 12
+    Y: 114
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lb
+  TEXT_FAN:
+    TEXT: "Fan:"
+    X: 12
+    Y: 136
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lb
   GLYPH_GPU_THERMO:
     TEXT: ""
     X: 122
@@ -55,14 +82,14 @@ static_text:
     FONT_COLOR: 0, 0, 0
     BACKGROUND_IMAGE: background.png
     ANCHOR: lb
-  GLYPH_GPU_FAN:
-    TEXT: ""
-    X: 12
-    Y: 118
-    FONT: fontawesome-6/fa-solid-900.ttf
-    FONT_SIZE: 18
-    FONT_COLOR: 0, 0, 0
-    BACKGROUND_COLOR: 255, 255, 255
+  # GLYPH_GPU_FAN:
+  #   TEXT: ""
+  #   X: 22
+  #   Y: 118
+  #   FONT: fontawesome-6/fa-solid-900.ttf
+  #   FONT_SIZE: 18
+  #   FONT_COLOR: 0, 0, 0
+  #   BACKGROUND_COLOR: 255, 255, 255
   HEADER_CPU:
     TEXT: "EPYC 7313 16 Core"
     X: 21
@@ -141,9 +168,21 @@ STATS:
         ALIGN: right
         ANCHOR: rm
   GPU:
-    INTERVAL: 1
+    INTERVAL: 3
+    FREQUENCY:
+      TEXT:
+        SHOW: False
+        SHOW_UNIT: True
+        X: 60
+        Y: 100
+        # WIDTH: 38
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lb
+        # ALIGN: right
     TEMPERATURE:
-      INTERVAL: 1
       TEXT:
         SHOW: True
         SHOW_UNIT: True
@@ -156,34 +195,61 @@ STATS:
         BACKGROUND_IMAGE: background.png
         ANCHOR: rb
         ALIGN: right
-    FAN_SPEED:
-      TEXT:
-        SHOW: True
-        SHOW_UNIT: True
-        X: 0
-        Y: 130
-        ANCHOR: lm
-        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
-        FONT_SIZE: 20
-        FONT_COLOR: 0, 0, 0
-        BACKGROUND_IMAGE: background.png
-      GRAPH:
-        SHOW: True
-        X: 400
-        Y: 112
-        WIDTH: 60
-        HEIGHT: 5
-        MIN_VALUE: 0
-        MAX_VALUE: 100
-        BAR_COLOR: 0, 0, 0
-        BAR_OUTLINE: True
-        BACKGROUND_COLOR: 255,255,255
     MEMORY_PERCENT:
       GRAPH:
         SHOW: True
         X: 12
         Y: 82
         WIDTH: 212
+        HEIGHT: 5
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+    PERCENTAGE:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 45
+        Y: 102
+        WIDTH: 45
+        ANCHOR: rb
+        ALIGN: right
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: True
+        X: 13
+        Y: 116
+        WIDTH: 78
+        HEIGHT: 5
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+
+    FAN_SPEED:
+      TEXT:
+        SHOW: False
+        SHOW_UNIT: True
+        X: 45
+        Y: 124
+        WIDTH: 45
+        ANCHOR: rb
+        ALIGN: right
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: False
+        X: 13
+        Y: 138
+        WIDTH: 78
         HEIGHT: 5
         MIN_VALUE: 0
         MAX_VALUE: 100
@@ -206,6 +272,44 @@ STATS:
         FONT_COLOR: 0, 0, 0
         BACKGROUND_IMAGE: background.png
         ANCHOR: lm
+    GpuFanPercent:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: 45
+        Y: 124
+        WIDTH: 45
+        ANCHOR: rb
+        ALIGN: right
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: True
+        X: 13
+        Y: 138
+        WIDTH: 78
+        HEIGHT: 5
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+
+    GpuFrequency:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: 60
+        Y: 100
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lb
+
+
     WireviewTempExternal1:
       TEXT:
         SHOW: True

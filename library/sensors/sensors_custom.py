@@ -25,6 +25,7 @@
 import math
 import os
 import platform
+import time
 from abc import ABC, abstractmethod
 from typing import List
 
@@ -74,6 +75,81 @@ class Vram(CustomDataSource):
     def last_values(self) -> List[float]:
         # No line graph for this stat
         return None
+
+
+class GpuFanPercent(CustomDataSource):
+    """GPU fan speed (%).
+
+    The built-in sensor backend (GPUtil) cannot report Nvidia fan speed, so the
+    app logs "Your GPU Fan Speed is not supported yet" and shows 0%. NVML (via
+    the pynvml / nvidia-ml-py bindings) reports it directly: NVML is initialised
+    once and the device handle is cached, so each read is a cheap in-process
+    call. If NVML is unavailable, the value is reported as NaN.
+    """
+
+    _handle = None  # cached NVML device handle (set up on first read)
+
+    @staticmethod
+    def _read() -> float:
+        try:
+            import pynvml
+            if GpuFanPercent._handle is None:
+                pynvml.nvmlInit()
+                GpuFanPercent._handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+            return float(pynvml.nvmlDeviceGetFanSpeed(GpuFanPercent._handle))
+        except Exception:
+            # NVML unavailable / fan unsupported -> report NaN
+            return math.nan
+
+    def as_numeric(self) -> float:
+        return self._read()
+
+    def as_string(self) -> str:
+        v = self._read()
+        if v is None or math.isnan(v):
+            return "  --%"
+        # Fixed 4-char width (max "100%") to avoid ghosting of the previous value
+        return f"{int(round(v)):>3}%"
+
+    def last_values(self) -> List[float]:
+        return None
+
+
+class GpuFrequency(CustomDataSource):
+    """GPU core (graphics) clock in GHz.
+
+    The built-in backend (GPUtil) cannot report Nvidia clocks, so the app shows
+    "nan GHz". NVML reports the current graphics clock directly; the device
+    handle is cached, so each read is a cheap in-process call. NaN on failure.
+    """
+
+    _handle = None  # cached NVML device handle (set up on first read)
+
+    @staticmethod
+    def _read_mhz() -> float:
+        try:
+            import pynvml
+            if GpuFrequency._handle is None:
+                pynvml.nvmlInit()
+                GpuFrequency._handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+            return float(pynvml.nvmlDeviceGetClockInfo(GpuFrequency._handle, pynvml.NVML_CLOCK_GRAPHICS))
+        except Exception:
+            # NVML unavailable / clock unsupported -> report NaN
+            return math.nan
+
+    def as_numeric(self) -> float:
+        mhz = self._read_mhz()
+        return math.nan if math.isnan(mhz) else mhz / 1000  # GHz
+
+    def as_string(self) -> str:
+        mhz = self._read_mhz()
+        if math.isnan(mhz):
+            return "  -- GHz"
+        return f"{mhz / 1000:.2f} GHz"
+
+    def last_values(self) -> List[float]:
+        return None
+
 
 
 # Example for a custom data class that has numeric and text values
