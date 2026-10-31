@@ -127,6 +127,43 @@ static_text:
     BACKGROUND_IMAGE: background.png
     ANCHOR: lb
 
+  LABEL_MemUsed:
+    TEXT: "Used:"
+    X: 251
+    Y: 194
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lb
+  LABEL_MemAvailable:
+    TEXT: "Avail:"
+    X: 251
+    Y: 210
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lb
+  LABEL_MemCached:
+    TEXT: "Cache:"
+    X: 251
+    Y: 226
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lb
+  LABEL_MemFree:
+    TEXT: "Free:"
+    X: 251
+    Y: 242
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lb
+
 STATS:
   CPU:
     FREQUENCY:
@@ -381,6 +418,79 @@ STATS:
         X: 180
         Y: 206
         WIDTH: 50
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rb
+
+    MemTotalGB:
+      TEXT:
+        SHOW: True
+        X: 260
+        Y: 162
+        WIDTH: 100
+        FONT: roboto-mono/RobotoMono-Bold.ttf
+        FONT_SIZE: 14
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: left
+        ANCHOR: lb
+    MemUsed:
+      TEXT:
+        SHOW: True
+        X: 300
+        Y: 182
+        WIDTH: 38
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rb
+      LINE_GRAPH:
+        SHOW: True
+        X: 344
+        Y: 225
+        WIDTH: 124
+        HEIGHT: 20
+        MIN_VALUE: 0
+        MAX_VALUE: 260
+        LINE_COLOR: 0, 0, 0
+        LINE_WIDTH: 2
+        AXIS: False
+        BACKGROUND_COLOR: 255, 255, 255
+    MemAvailable:
+      TEXT:
+        SHOW: True
+        X: 300
+        Y: 198
+        WIDTH: 38
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rb
+    MemCached:
+      TEXT:
+        SHOW: True
+        X: 300
+        Y: 214
+        WIDTH: 38
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rb
+    MemFree:
+      TEXT:
+        SHOW: True
+        X: 300
+        Y: 230
+        WIDTH: 38
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
         FONT_SIZE: 12
         FONT_COLOR: 0, 0, 0
@@ -717,32 +827,32 @@ STATS:
         BACKGROUND_IMAGE: background.png
         ALIGN: right
         ANCHOR: rm
-  NET:
-    INTERVAL: 1
-    DOWNLOADED:
-      TEXT:
-        SHOW: True
-        X: 458
-        Y: 192
-        WIDTH: 65
-        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
-        FONT_SIZE: 12
-        FONT_COLOR: 0, 0, 0
-        BACKGROUND_IMAGE: background.png
-        ALIGN: right
-        ANCHOR: rm
-    UPLOADED:
-      TEXT:
-        SHOW: True
-        X: 458
-        Y: 224
-        WIDTH: 65
-        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
-        FONT_SIZE: 12
-        FONT_COLOR: 0, 0, 0
-        BACKGROUND_IMAGE: background.png
-        ALIGN: right
-        ANCHOR: rm
+  # NET:
+    # INTERVAL: 1
+    # DOWNLOADED:
+    #   TEXT:
+    #     SHOW: True
+    #     X: 458
+    #     Y: 192
+    #     WIDTH: 65
+    #     FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    #     FONT_SIZE: 12
+    #     FONT_COLOR: 0, 0, 0
+    #     BACKGROUND_IMAGE: background.png
+    #     ALIGN: right
+    #     ANCHOR: rm
+    # UPLOADED:
+    #   TEXT:
+    #     SHOW: True
+    #     X: 458
+    #     Y: 224
+    #     WIDTH: 65
+    #     FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    #     FONT_SIZE: 12
+    #     FONT_COLOR: 0, 0, 0
+    #     BACKGROUND_IMAGE: background.png
+    #     ALIGN: right
+    #     ANCHOR: rm
   DATE:
     INTERVAL: 1
     DAY:

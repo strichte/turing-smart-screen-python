@@ -562,3 +562,80 @@ class CpuLoad5(_LoadAvg):
 
 class CpuLoad15(_LoadAvg):
     index = 2
+
+
+class _MemStat(CustomDataSource):
+    """Shared sampler for RAM widgets: ONE psutil.virtual_memory() read per
+    monitoring cycle (time-guarded so as_numeric/as_string/last_values within a
+    single cycle sample only once). Values in GiB. Keeps a per-key history for
+    line graphs."""
+    _ts = 0.0
+    _vals = {}          # key -> GiB float for the latest cycle
+    _hist = {}          # key -> list[float] (GiB history)
+    _cap = 140
+    which = ''          # set by subclass: total|used|available|cached|free
+
+    @classmethod
+    def _sample_if_due(cls):
+        now = time.time()
+        if now - _MemStat._ts < 0.5:
+            return  # already sampled this cycle
+        _MemStat._ts = now
+        try:
+            import psutil
+            vm = psutil.virtual_memory()
+            g = lambda b: b / (1024 ** 3)
+            vals = {
+                'total': g(vm.total),
+                'used': g(vm.total - vm.available),
+                'available': g(vm.available),
+                'cached': g(vm.cached + vm.buffers),
+                'free': g(vm.free),
+            }
+        except Exception:
+            vals = {k: math.nan for k in ('total', 'used', 'available', 'cached', 'free')}
+        _MemStat._vals = vals
+        for k, v in vals.items():
+            h = _MemStat._hist.setdefault(k, [])
+            h.append(v)
+            if len(h) > _MemStat._cap:
+                del h[0]
+
+    def as_numeric(self) -> float:
+        self._sample_if_due()
+        return self._vals.get(self.which, math.nan)
+
+    def as_string(self) -> str:
+        self._sample_if_due()
+        v = self._vals.get(self.which, math.nan)
+        return '--' if math.isnan(v) else f"{v:.0f} G"
+
+    def last_values(self):
+        self._sample_if_due()
+        return list(self._hist.get(self.which, []))
+
+
+class MemUsed(_MemStat):
+    which = 'used'
+
+
+class MemAvailable(_MemStat):
+    which = 'available'
+
+
+class MemCached(_MemStat):
+    which = 'cached'
+
+
+class MemFree(_MemStat):
+    which = 'free'
+
+
+class MemTotalGB(_MemStat):
+    """Dynamic title: 'RAM 252 GB'."""
+    which = 'total'
+
+    def as_string(self) -> str:
+        self._sample_if_due()
+        v = self._vals.get('total', math.nan)
+        return 'RAM -- GB' if math.isnan(v) else f"RAM {int(round(v))} GB"
