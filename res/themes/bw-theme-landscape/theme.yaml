@@ -14,7 +14,7 @@ static_images:
 static_text:
   HEADER_GPU:
     TEXT: "INNO3D GeForce 5090"
-    X: 22
+    X: 21
     Y: 51
     FONT: roboto-mono/RobotoMono-Bold.ttf
     FONT_SIZE: 14
@@ -93,6 +93,15 @@ static_text:
   HEADER_CPU:
     TEXT: "EPYC 7313 16 Core"
     X: 21
+    Y: 165
+    FONT: roboto-mono/RobotoMono-Bold.ttf
+    FONT_SIZE: 14
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_COLOR: 192, 192, 192
+
+  HEADER_RAM:
+    TEXT: "256 GiB DDR4 SDRAM"
+    X: 260
     Y: 165
     FONT: roboto-mono/RobotoMono-Bold.ttf
     FONT_SIZE: 14
@@ -425,18 +434,6 @@ STATS:
         ALIGN: right
         ANCHOR: rb
 
-    MemTotalGB:
-      TEXT:
-        SHOW: True
-        X: 260
-        Y: 162
-        WIDTH: 100
-        FONT: roboto-mono/RobotoMono-Bold.ttf
-        FONT_SIZE: 14
-        FONT_COLOR: 0, 0, 0
-        BACKGROUND_IMAGE: background.png
-        ALIGN: left
-        ANCHOR: lb
     MemUsed:
       TEXT:
         SHOW: True
@@ -460,7 +457,7 @@ STATS:
         LINE_COLOR: 0, 0, 0
         LINE_WIDTH: 2
         AXIS: False
-        BACKGROUND_COLOR: 255, 255, 255
+        BACKGROUND_IMAGE: background.png
     MemAvailable:
       TEXT:
         SHOW: True

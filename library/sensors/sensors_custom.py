@@ -638,4 +638,4 @@ class MemTotalGB(_MemStat):
     def as_string(self) -> str:
         self._sample_if_due()
         v = self._vals.get('total', math.nan)
-        return 'RAM -- GB' if math.isnan(v) else f"RAM {int(round(v))} GB"
+        return 'RAM -- GB' if math.isnan(v) else f"RAM {int(v)} GB"  # floor, like btop (avoids overstating 251.55->252)
