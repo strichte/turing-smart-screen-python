@@ -431,8 +431,8 @@ class WireviewTempExternal1(WireviewDataSource):
     attr = "temp3_input"
     scale = 0.001      # millideg C -> deg C
     unit = "°C"
-    label = "Cable Temp"
-    fmt = "{value:>8.1f}{unit}"
+    label = ""
+    fmt = "{value:.0f}{unit}"
 
 
 class WireviewTempExternal2(WireviewDataSource):
@@ -440,8 +440,8 @@ class WireviewTempExternal2(WireviewDataSource):
     attr = "temp4_input"
     scale = 0.001      # millideg C -> deg C
     unit = "°C"
-    label = "Case Temp"
-    fmt = "{value:>8.1f}{unit}"
+    label = ""
+    fmt = "{value:.0f}{unit}"
 
 
 class WireviewTotalEnergy(WireviewDataSource):

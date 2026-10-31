@@ -31,30 +31,30 @@ static_text:
   TEXT_GPU_TEMP:
     TEXT: "GPU:"
     X: 150
-    Y: 102
+    Y: 110
     FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
     FONT_SIZE: 12
     FONT_COLOR: 0, 0, 0
     BACKGROUND_IMAGE: background.png
-    ANCHOR: lt
+    ANCHOR: lb
   TEXT_GPU_CABLE_TEMP:
     TEXT: "Cable:"
     X: 150
-    Y: 118
+    Y: 126
     FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
     FONT_SIZE: 12
     FONT_COLOR: 0, 0, 0
     BACKGROUND_IMAGE: background.png
-    ANCHOR: lt
+    ANCHOR: lb
   TEXT_GPU_CASE_TEMP:
     TEXT: "Case:"
     X: 150
-    Y: 134
+    Y: 142
     FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
     FONT_SIZE: 12
     FONT_COLOR: 0, 0, 0
     BACKGROUND_IMAGE: background.png
-    ANCHOR: lt
+    ANCHOR: lb
   GLYPH_GPU_FAN:
     TEXT: ""
     X: 12
@@ -147,14 +147,14 @@ STATS:
       TEXT:
         SHOW: True
         SHOW_UNIT: True
-        X: 188
-        Y: 100
-        WIDTH: 50
+        X: 200
+        Y: 98
+        WIDTH: 38
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
         FONT_SIZE: 12
         FONT_COLOR: 0, 0, 0
         BACKGROUND_IMAGE: background.png
-        ANCHOR: rt
+        ANCHOR: rb
         ALIGN: right
     FAN_SPEED:
       TEXT:
@@ -210,27 +210,27 @@ STATS:
       TEXT:
         SHOW: True
         SHOW_UNIT: True
-        X: 188
-        Y: 116
-        WIDTH: 50
+        X: 200
+        Y: 114
+        WIDTH: 38
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
         FONT_SIZE: 12
         FONT_COLOR: 0, 0, 0
         BACKGROUND_IMAGE: background.png
-        ANCHOR: rt
+        ANCHOR: rb
         ALIGN: right      
     WireviewTempExternal2:
       TEXT:
         SHOW: True
         SHOW_UNIT: True
-        X: 188
-        Y: 132
-        WIDTH: 50
+        X: 200
+        Y: 130
+        WIDTH: 38
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
         FONT_SIZE: 12
         FONT_COLOR: 0, 0, 0
         BACKGROUND_IMAGE: background.png
-        ANCHOR: rt
+        ANCHOR: rb
         ALIGN: right             
     # Total GPU power — text
     WireviewTotalPower:
