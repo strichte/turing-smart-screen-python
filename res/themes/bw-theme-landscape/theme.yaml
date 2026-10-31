@@ -1,0 +1,586 @@
+# WireView Black and White 3.5" landscape dashboard theme
+
+display:
+  DISPLAY_ORIENTATION: landscape
+
+static_images:
+  BACKGROUND:
+    PATH: background.png
+    X: 0
+    Y: 0
+    WIDTH: 480
+    HEIGHT: 320
+
+static_text:
+  HEADER_GPU:
+    TEXT: "INNO3D GeForce 5090"
+    X: 22
+    Y: 51
+    FONT: roboto-mono/RobotoMono-Bold.ttf
+    FONT_SIZE: 14
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_COLOR: 192, 192, 192
+  GLYPH_GPU_THERMO:
+    TEXT: ""
+    X: 122
+    Y: 92
+    FONT: fontawesome-6/fa-solid-900.ttf
+    FONT_SIZE: 38
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+  TEXT_GPU_TEMP:
+    TEXT: "GPU:"
+    X: 150
+    Y: 92
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lt
+  TEXT_GPU_CABLE_TEMP:
+    TEXT: "Cable:"
+    X: 150
+    Y: 108
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lt
+  TEXT_GPU_CASE_TEMP:
+    TEXT: "Case:"
+    X: 150
+    Y: 124
+    FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_IMAGE: background.png
+    ANCHOR: lt
+  GLYPH_GPU_FAN:
+    TEXT: ""
+    X: 12
+    Y: 118
+    FONT: fontawesome-6/fa-solid-900.ttf
+    FONT_SIZE: 18
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_COLOR: 255, 255, 255
+  HEADER_CPU:
+    TEXT: "EPYC 7313 16 Core"
+    X: 21
+    Y: 164
+    FONT: roboto-mono/RobotoMono-Bold.ttf
+    FONT_SIZE: 14
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_COLOR: 192, 192, 192
+
+STATS:
+  CPU:
+    INTERVAL: 1
+    FREQUENCY:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: 300
+        Y: 60
+        WIDTH: 50
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 14
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rm
+    FAN_SPEED:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: 458
+        Y: 60
+        WIDTH: 50
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 14
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rm
+    PERCENTAGE:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: 300
+        Y: 92
+        WIDTH: 50
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 14
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rm
+    TEMPERATURE:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: 458
+        Y: 92
+        WIDTH: 50
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 14
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rt
+    POWER:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: 300
+        Y: 124
+        WIDTH: 50
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 14
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rm
+  GPU:
+    INTERVAL: 1
+    TEMPERATURE:
+      INTERVAL: 1
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 188
+        Y: 90
+        WIDTH: 50
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rt
+        ALIGN: right
+    FAN_SPEED:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 0
+        Y: 130
+        ANCHOR: lm
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 20
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: True
+        X: 400
+        Y: 112
+        WIDTH: 60
+        HEIGHT: 5
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+    MEMORY_PERCENT:
+      GRAPH:
+        SHOW: True
+        X: 12
+        Y: 82
+        WIDTH: 212
+        HEIGHT: 5
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+
+
+  CUSTOM:
+    INTERVAL: 3
+    # VRAM oneliner: VRAM: used/total MB xx%
+    Vram:
+      TEXT:
+        SHOW: True
+        X: 12
+        Y: 68
+        WIDTH: 300
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 14
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    WireviewTempExternal1:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 188
+        Y: 106
+        WIDTH: 50
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rt
+        ALIGN: right      
+    WireviewTempExternal2:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 188
+        Y: 122
+        WIDTH: 50
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rt
+        ALIGN: right             
+    # Total GPU power — text
+      TEXT:
+        SHOW: False
+        SHOW_TEXT: False
+        SHOW_UNIT: True
+        X: 120
+        Y: 130
+        ANCHOR: mm
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      RADIAL:
+        SHOW: True
+        X: 432
+        Y: 110
+        RADIUS: 35
+        WIDTH: 14
+        MIN_VALUE: 0
+        MAX_VALUE: 600
+        ANGLE_START: 120
+        ANGLE_END: 60
+        ANGLE_STEPS: 1
+        ANGLE_SEP: 0
+        CLOCKWISE: True
+        BAR_COLOR: 0, 0, 0
+        BAR_BACKGROUND_COLOR: 200, 200, 200
+        DRAW_BAR_BACKGROUND: True
+        SHOW_TEXT: True
+        SHOW_UNIT: True
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+
+    # Per-pin current sensors 1-6 — each shown as a labelled text value plus a bar
+    WireviewCurrentPin1:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 245
+        Y: 70
+        ANCHOR: lt
+        FONT: roboto-mono/RobotoMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: False
+        X: 310
+        Y: 69
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 1
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+    WireviewCurrentPin1mA:
+      GRAPH:
+        SHOW: True
+        X: 310
+        Y: 69
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 10000
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+    WireviewCurrentPin2:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 245
+        Y: 84
+        ANCHOR: lt
+        FONT: roboto-mono/RobotoMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: False
+        X: 310
+        Y: 83
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 1
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+    WireviewCurrentPin2mA:
+      GRAPH:
+        SHOW: True
+        X: 310
+        Y: 83
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 10000
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+
+    WireviewCurrentPin3:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 245
+        Y: 98
+        ANCHOR: lt
+        FONT: roboto-mono/RobotoMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: False
+        X: 310
+        Y: 97
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 1
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+    WireviewCurrentPin3mA:
+      GRAPH:
+        SHOW: True
+        X: 310
+        Y: 97
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 10000
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+
+    WireviewCurrentPin4:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 245
+        Y: 112
+        ANCHOR: lt
+        FONT: roboto-mono/RobotoMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: False
+        X: 310
+        Y: 111
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 1
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+    WireviewCurrentPin4mA:
+      GRAPH:
+        SHOW: True
+        X: 310
+        Y: 111
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 10000
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+
+    WireviewCurrentPin5:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 245
+        Y: 126
+        ANCHOR: lt
+        FONT: roboto-mono/RobotoMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: False
+        X: 310
+        Y: 125
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 1
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+    WireviewCurrentPin5mA:
+      GRAPH:
+        SHOW: True
+        X: 310
+        Y: 125
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 10000
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+
+    WireviewCurrentPin6:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 245
+        Y: 140
+        ANCHOR: lt
+        FONT: roboto-mono/RobotoMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: False
+        X: 310
+        Y: 139
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 1
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+    WireviewCurrentPin6mA:
+      GRAPH:
+        SHOW: True
+        X: 310
+        Y: 139
+        WIDTH: 80
+        HEIGHT: 12
+        MIN_VALUE: 0
+        MAX_VALUE: 10000
+        BAR_COLOR: 0, 0, 0
+        BAR_OUTLINE: True
+        BACKGROUND_COLOR: 255,255,255
+
+  MEMORY:
+    INTERVAL: 5
+    VIRTUAL:
+      USED:
+        TEXT:
+          SHOW: True
+          SHOW_UNIT: False
+          X: 145
+          Y: 192
+          WIDTH: 55
+          FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+          FONT_SIZE: 14
+          FONT_COLOR: 0, 0, 0
+          BACKGROUND_IMAGE: background.png
+          ALIGN: right
+          ANCHOR: rm
+      PERCENT_TEXT:
+        TEXT:
+          SHOW: True
+          SHOW_UNIT: False
+          X: 220
+          Y: 192
+          WIDTH: 40
+          FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+          FONT_SIZE: 14
+          FONT_COLOR: 0, 0, 0
+          BACKGROUND_IMAGE: background.png
+          ALIGN: right
+          ANCHOR: rm
+      AVAILABLE:
+        TEXT:
+          SHOW: True
+          SHOW_UNIT: False
+          X: 145
+          Y: 224
+          WIDTH: 55
+          FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+          FONT_SIZE: 14
+          FONT_COLOR: 0, 0, 0
+          BACKGROUND_IMAGE: background.png
+          ALIGN: right
+          ANCHOR: rm
+  DISK:
+    INTERVAL: 10
+    TENSION:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: False
+        X: 145
+        Y: 224
+        WIDTH: 50
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 14
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rm
+  NET:
+    INTERVAL: 1
+    DOWNLOADED:
+      TEXT:
+        SHOW: True
+        X: 458
+        Y: 192
+        WIDTH: 65
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rm
+    UPLOADED:
+      TEXT:
+        SHOW: True
+        X: 458
+        Y: 224
+        WIDTH: 65
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+        ALIGN: right
+        ANCHOR: rm
+  DATE:
+    INTERVAL: 1
+    DAY:
+      TEXT:
+        FORMAT: EEE  yyyy-MM-dd
+        SHOW: True
+        X: 350
+        Y: 42
+        ANCHOR: rb
+        FONT: DSEG7-Modern/DSEG7Modern-BoldItalic.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 255, 255, 255
+        BACKGROUND_IMAGE: background.png
+    HOUR:
+      TEXT:
+        FORMAT: HH:mm
+        SHOW: True
+        X: 358
+        Y: 42
+        ANCHOR: lb
+        FONT: DSEG7-Modern/DSEG7Modern-BoldItalic.ttf
+        FONT_SIZE: 34
+        FONT_COLOR: 255, 255, 255
+        BACKGROUND_IMAGE: background.png

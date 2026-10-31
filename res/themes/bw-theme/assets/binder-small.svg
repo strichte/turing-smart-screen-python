@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="158" height="78" viewBox="0 0 158 78">
+  <!-- Small binder (half-width) for bottom sections -->
+  <!-- Black background/border (5px all sides) -->
+  <rect x="0" y="0" width="158" height="78" fill="#000000"/>
+  <!-- Grey title bar (y=5 to y=24) with chamfered right edge -->
+  <!-- Chamfer: right edge from x=144 at top to x=153 at bottom (9px over 19px) -->
+  <polygon points="5,5 144,5 153,24 5,24" fill="#C0C0C0"/>
+  <!-- Bullet square -->
+  <rect x="10" y="11" width="7" height="7" fill="#000000"/>
+  <!-- Separator (2px black - y=24-25) -->
+  <!-- White content area (y=26 to y=73, height=47px) -->
+  <rect x="5" y="26" width="148" height="47" fill="#FFFFFF"/>
+</svg>

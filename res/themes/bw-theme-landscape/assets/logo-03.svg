@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210" height="58" viewBox="0 0 210 58">
+  <defs><style>
+      @font-face { font-family: 'GeForce'; src: url('GeForce-Bold.ttf'); }
+      @font-face { font-family: 'RBItalic'; src: url('Roboto-BlackItalic.ttf'); }
+    </style></defs>
+  <text x="4" y="46" font-family="GeForce" font-size="46" fill="#FFF" letter-spacing="2">AI</text>
+  <g transform="skewX(-12)">
+    <text x="88" y="45" font-family="RBItalic" font-size="13" fill="#FFF">.zs.home</text>
+  </g>
+  <!-- Chamfered underline matching binder aesthetic -->
+  <polygon points="0,50 200,50 195,55 0,55" fill="#FFF"/>
+</svg>

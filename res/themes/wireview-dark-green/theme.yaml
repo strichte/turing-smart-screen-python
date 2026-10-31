@@ -1,0 +1,438 @@
+# WireView Dark Green — 3.5" portrait dashboard theme
+#
+# Dark-mode system monitor theme inspired by bash-dark-green-gpu, extended with
+# WireView 2 Pro power-monitor sensors (see WIREVIEW.md and
+# library/sensors/sensors_custom.py).
+#
+# Plain black background (no background image). Custom sensor classes are
+# referenced by their exact class name under STATS -> CUSTOM and must match
+# library/sensors/sensors_custom.py.
+#
+# Screen: 3.5 inch, portrait (320 x 480). All X/Y coordinates are in pixels.
+---
+display:
+  DISPLAY_ORIENTATION: portrait
+  DISPLAY_RGB_LED: 30, 255, 50
+
+# Static text elements are drawn once at startup and stay on screen.
+# CLEAR paints the whole screen black first so the display boot message
+# is fully overwritten (each subsequent text element only repaints its
+# own bounding box, so without CLEAR the boot text would show in the gaps).
+# The remaining entries are section headers for the text-only dashboard.
+static_text:
+  CLEAR:
+    TEXT: " "
+    X: 0
+    Y: 0
+    WIDTH: 320
+    HEIGHT: 480
+    FONT: roboto-mono/RobotoMono-Regular.ttf
+    FONT_SIZE: 10
+    FONT_COLOR: 0, 0, 0
+    BACKGROUND_COLOR: 0, 0, 0
+  HEADER_CPU:
+    TEXT: "CPU"
+    X: 4
+    Y: 6
+    FONT: roboto-mono/RobotoMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 53, 191, 92
+    BACKGROUND_COLOR: 0, 0, 0
+  HEADER_GPU:
+    TEXT: "GPU"
+    X: 150
+    Y: 6
+    FONT: roboto-mono/RobotoMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 53, 191, 92
+    BACKGROUND_COLOR: 0, 0, 0
+  HEADER_WIREVIEW:
+    TEXT: "WireView"
+    X: 4
+    Y: 106
+    FONT: roboto-mono/RobotoMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 53, 191, 92
+    BACKGROUND_COLOR: 0, 0, 0
+  HEADER_RAM:
+    TEXT: "RAM"
+    X: 4
+    Y: 282
+    FONT: roboto-mono/RobotoMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 53, 191, 92
+    BACKGROUND_COLOR: 0, 0, 0
+  HEADER_DISK:
+    TEXT: "DISK"
+    X: 150
+    Y: 400
+    FONT: roboto-mono/RobotoMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 53, 191, 92
+    BACKGROUND_COLOR: 0, 0, 0
+
+STATS:
+  # ---------------------------------------------------------------------------
+  # CPU section
+  # ---------------------------------------------------------------------------
+  CPU:
+    INTERVAL: 1
+    PERCENTAGE:
+      RADIAL:
+        SHOW: True
+        X: 52
+        Y: 42
+        RADIUS: 22
+        WIDTH: 5
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: -90
+        ANGLE_END: 270
+        ANGLE_STEPS: 1
+        ANGLE_SEP: 0
+        CLOCKWISE: True
+        BAR_COLOR: 53, 191, 92
+        SHOW_TEXT: True
+        SHOW_UNIT: False
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+    TEMPERATURE:
+      INTERVAL: 5
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 4
+        Y: 72
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 10
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+    FREQUENCY:
+      INTERVAL: 5
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 4
+        Y: 88
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 10
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+
+  # ---------------------------------------------------------------------------
+  # GPU section (usual data)
+  # ---------------------------------------------------------------------------
+  GPU:
+    INTERVAL: 1
+    PERCENTAGE:
+      RADIAL:
+        SHOW: True
+        X: 272
+        Y: 42
+        RADIUS: 22
+        WIDTH: 5
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: -90
+        ANGLE_END: 270
+        ANGLE_STEPS: 1
+        ANGLE_SEP: 0
+        CLOCKWISE: True
+        BAR_COLOR: 53, 191, 92
+        SHOW_TEXT: True
+        SHOW_UNIT: False
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+    MEMORY:
+      INTERVAL: 5
+      GRAPH:
+        SHOW: True
+        X: 150
+        Y: 84
+        WIDTH: 160
+        HEIGHT: 9
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 53, 191, 92
+        BAR_OUTLINE: False
+        BACKGROUND_COLOR: 0, 0, 0
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 150
+        Y: 70
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+    TEMPERATURE:
+      INTERVAL: 5
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 150
+        Y: 98
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+
+  # ---------------------------------------------------------------------------
+  # WireView 2 Pro power-monitor sensors (custom)
+  # Class names must match library/sensors/sensors_custom.py
+  # ---------------------------------------------------------------------------
+  CUSTOM:
+    INTERVAL: 3
+
+    # Total GPU power — text
+    WireviewTotalPower:
+      INTERVAL: 3
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 4
+        Y: 118
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+
+
+
+    WireviewCurrentPin2:
+      INTERVAL: 3
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 4
+        Y: 158
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 9
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+      GRAPH:
+        SHOW: True
+        X: 4
+        Y: 172
+        WIDTH: 170
+        HEIGHT: 8
+        MIN_VALUE: 0
+        MAX_VALUE: 5
+        BAR_COLOR: 53, 191, 92
+        BAR_OUTLINE: False
+        BACKGROUND_COLOR: 0, 0, 0
+
+    WireviewCurrentPin3:
+      INTERVAL: 3
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 4
+        Y: 180
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 9
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+      GRAPH:
+        SHOW: True
+        X: 4
+        Y: 194
+        WIDTH: 170
+        HEIGHT: 8
+        MIN_VALUE: 0
+        MAX_VALUE: 5
+        BAR_COLOR: 53, 191, 92
+        BAR_OUTLINE: False
+        BACKGROUND_COLOR: 0, 0, 0
+
+    WireviewCurrentPin4:
+      INTERVAL: 3
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 4
+        Y: 202
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 9
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+      GRAPH:
+        SHOW: True
+        X: 4
+        Y: 216
+        WIDTH: 170
+        HEIGHT: 8
+        MIN_VALUE: 0
+        MAX_VALUE: 5
+        BAR_COLOR: 53, 191, 92
+        BAR_OUTLINE: False
+        BACKGROUND_COLOR: 0, 0, 0
+
+    WireviewCurrentPin5:
+      INTERVAL: 3
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 4
+        Y: 224
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 9
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+      GRAPH:
+        SHOW: True
+        X: 4
+        Y: 238
+        WIDTH: 170
+        HEIGHT: 8
+        MIN_VALUE: 0
+        MAX_VALUE: 5
+        BAR_COLOR: 53, 191, 92
+        BAR_OUTLINE: False
+        BACKGROUND_COLOR: 0, 0, 0
+
+    WireviewCurrentPin6:
+      INTERVAL: 3
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 4
+        Y: 246
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 9
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+      GRAPH:
+        SHOW: True
+        X: 4
+        Y: 260
+        WIDTH: 170
+        HEIGHT: 8
+        MIN_VALUE: 0
+        MAX_VALUE: 5
+        BAR_COLOR: 53, 191, 92
+        BAR_OUTLINE: False
+        BACKGROUND_COLOR: 0, 0, 0
+
+    # WireView temperatures (temp3_input / temp4_input) with explicit labels
+    WireviewTempExternal1:
+      INTERVAL: 3
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 150
+        Y: 372
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 10
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+
+    WireviewTempExternal2:
+      INTERVAL: 3
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 150
+        Y: 390
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 10
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+
+  # ---------------------------------------------------------------------------
+  # RAM section
+  # ---------------------------------------------------------------------------
+  MEMORY:
+    INTERVAL: 5
+    VIRTUAL:
+      RADIAL:
+        SHOW: True
+        X: 52
+        Y: 306
+        RADIUS: 22
+        WIDTH: 5
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: -90
+        ANGLE_END: 270
+        ANGLE_STEPS: 1
+        ANGLE_SEP: 0
+        CLOCKWISE: True
+        BAR_COLOR: 53, 191, 92
+        SHOW_TEXT: True
+        SHOW_UNIT: False
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+      USED:
+        TEXT:
+          SHOW: True
+          SHOW_UNIT: True
+          X: 150
+          Y: 296
+          FONT: roboto-mono/RobotoMono-Regular.ttf
+          FONT_SIZE: 11
+          FONT_COLOR: 53, 191, 92
+          BACKGROUND_COLOR: 0, 0, 0
+
+  # ---------------------------------------------------------------------------
+  # Disk section — usage as a radial dial
+  # ---------------------------------------------------------------------------
+  DISK:
+    INTERVAL: 5
+    USED:
+      RADIAL:
+        SHOW: True
+        X: 52
+        Y: 430
+        RADIUS: 22
+        WIDTH: 5
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: -90
+        ANGLE_END: 270
+        ANGLE_STEPS: 1
+        ANGLE_SEP: 0
+        CLOCKWISE: True
+        BAR_COLOR: 53, 191, 92
+        SHOW_TEXT: True
+        SHOW_UNIT: False
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 150
+        Y: 412
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 53, 191, 92
+        BACKGROUND_COLOR: 0, 0, 0
+      TOTAL:
+        TEXT:
+          SHOW: True
+          SHOW_UNIT: True
+          X: 150
+          Y: 428
+          FONT: roboto-mono/RobotoMono-Regular.ttf
+          FONT_SIZE: 11
+          FONT_COLOR: 53, 191, 92
+          BACKGROUND_COLOR: 0, 0, 0
+      FREE:
+        TEXT:
+          SHOW: True
+          SHOW_UNIT: True
+          X: 150
+          Y: 444
+          FONT: roboto-mono/RobotoMono-Regular.ttf
+          FONT_SIZE: 11
+          FONT_COLOR: 53, 191, 92
+          BACKGROUND_COLOR: 0, 0, 0
+

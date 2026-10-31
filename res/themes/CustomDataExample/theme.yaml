@@ -15,18 +15,83 @@ static_images:
     WIDTH: 480
     HEIGHT: 320
 
+static_text:
+  HEADER_CPU:
+    TEXT: "GPU"
+    X: 15
+    Y: 20
+    FONT: roboto-mono/RobotoMono-Bold.ttf
+    FONT_SIZE: 28
+    FONT_COLOR: 61, 184, 225
+    BACKGROUND_IMAGE: background.png
+  GPU:
+    TEXT: "Mem: "
+    X: 27
+    Y: 98
+    FONT: roboto-mono/RobotoMono-Bold.ttf
+    FONT_SIZE: 12
+    FONT_COLOR: 61, 184, 225
+    BACKGROUND_IMAGE: background.png
+
 STATS:
-  DATE:
+  # ---------------------------------------------------------------------------
+  # GPU section (usual data)
+  # ---------------------------------------------------------------------------
+  GPU:
     INTERVAL: 1
-    HOUR:
+    PERCENTAGE:
+      RADIAL:
+        SHOW: True
+        X: 68
+        Y: 70
+        RADIUS: 25
+        WIDTH: 8
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: 110
+        ANGLE_END: 70
+        ANGLE_STEPS: 1
+        ANGLE_SEP: 0
+        CLOCKWISE: True
+        BAR_COLOR: 255, 135, 0
+        SHOW_TEXT: True
+        SHOW_UNIT: True
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 255, 135, 0
+        BACKGROUND_IMAGE: background.png
+    MEMORY:
+      INTERVAL: 5
       TEXT:
         SHOW: True
-        X: 20
-        Y: 30
+        SHOW_UNIT: True
+        X: 60
+        Y: 98
         FONT: roboto-mono/RobotoMono-Bold.ttf
-        FONT_SIZE: 20
+        FONT_SIZE: 12
+        FONT_COLOR: 61, 184, 225
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: True
+        X: 150
+        Y: 84
+        WIDTH: 160
+        HEIGHT: 9
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 255, 135, 0
+        BAR_OUTLINE: True
+        BACKGROUND_IMAGE: background.png
+    TEMPERATURE:
+      INTERVAL: 5
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 150
+        Y: 98
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 11
         FONT_COLOR: 200, 200, 200
-        # BACKGROUND_COLOR: 50, 0, 0
         BACKGROUND_IMAGE: background.png
 
   # All custom sensor classes are listed under CUSTOM
@@ -36,33 +101,89 @@ STATS:
     INTERVAL: 3
 
 
+  # ---------------------------------------------------------------------------
+  # WireView 2 Pro power-monitor sensors (custom)
+  # Class names must match library/sensors/sensors_custom.py
+  # ---------------------------------------------------------------------------
+    # Total GPU power — text
+    WireviewTotalPower:
+      INTERVAL: 3
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 35
+        Y: 110
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 200, 200, 200
+        BACKGROUND_IMAGE: background.png
+
+      GRAPH:
+        SHOW: True
+        X: 35
+        Y: 122
+        WIDTH: 135
+        HEIGHT: 15
+        MIN_VALUE: 0
+        MAX_VALUE: 600
+        BAR_COLOR: 255, 135, 0
+        BAR_OUTLINE: True
+        BACKGROUND_IMAGE: background.png
+
+    # Per-pin current sensors 1-6 — each shown as a labelled text value plus a bar
+    WireviewCurrentPin1:
+      INTERVAL: 3
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 35
+        Y: 138
+        FONT: roboto-mono/RobotoMono-Regular.ttf
+        FONT_SIZE: 10
+        FONT_COLOR: 200, 200, 200
+        BACKGROUND_IMAGE: background.png
+
+      GRAPH:
+        SHOW: True
+        X: 35
+        Y: 150
+        WIDTH: 135
+        HEIGHT: 10
+        MIN_VALUE: 0
+        MAX_VALUE: 10
+        BAR_COLOR: 255, 135, 0
+        BAR_OUTLINE: True
+        BACKGROUND_IMAGE: background.png
+
+
+
 
     # The name of the class must be an exact match to the class name in sensors_custom.py
     ExampleCustomNumericData:
 
       # There are 4 ways of displaying a custom sensor containing numeric values: as text, as bar graph (progress bar), as radial progress bar, as line graph
       TEXT:
-        SHOW: True
-        X: 50
-        Y: 80
-        FONT: roboto-mono/RobotoMono-Bold.ttf
-        FONT_SIZE: 40
-        FONT_COLOR: 200, 200, 200
-        # BACKGROUND_COLOR: 50, 0, 0
-        BACKGROUND_IMAGE: background.png
+        # SHOW: True
+        # X: 50
+        # Y: 80
+        # FONT: roboto-mono/RobotoMono-Bold.ttf
+        # FONT_SIZE: 40
+        # FONT_COLOR: 200, 200, 200
+        # # BACKGROUND_COLOR: 50, 0, 0
+        # BACKGROUND_IMAGE: background.png
 
-      GRAPH:
-        SHOW: True
-        X: 50
-        Y: 150
-        WIDTH: 180
-        HEIGHT: 30
-        MIN_VALUE: 0
-        MAX_VALUE: 100
-        BAR_COLOR: 255, 135, 0
-        BAR_OUTLINE: True
-        # BACKGROUND_COLOR: 0, 0, 0
-        BACKGROUND_IMAGE: background.png
+      # GRAPH:
+      #   SHOW: True
+      #   X: 50
+      #   Y: 150
+      #   WIDTH: 180
+      #   HEIGHT: 30
+      #   MIN_VALUE: 0
+      #   MAX_VALUE: 100
+      #   BAR_COLOR: 255, 135, 0
+      #   BAR_OUTLINE: True
+      #   # BACKGROUND_COLOR: 0, 0, 0
+      #   BACKGROUND_IMAGE: background.png
 
       RADIAL:
         SHOW: True
@@ -86,21 +207,7 @@ STATS:
         # BACKGROUND_COLOR: 0, 0, 0
         BACKGROUND_IMAGE: background.png
 
-      LINE_GRAPH:
-        SHOW: True
-        X: 300
-        Y: 220
-        WIDTH: 133
-        HEIGHT: 70
-        MIN_VALUE: 0
-        MAX_VALUE: 100
-        AUTOSCALE: False
-        LINE_COLOR: 61, 184, 225
-        AXIS: True
-        AXIS_COLOR: 255, 135, 0
-        AXIS_FONT: roboto/Roboto-Black.ttf
-        AXIS_FONT_SIZE: 10
-        BACKGROUND_IMAGE: background.png
+
 
 
 

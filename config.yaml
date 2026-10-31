@@ -10,7 +10,11 @@ config:
   # Theme to use (located in res/themes)
   # Use the name of the folder as value
   # Choose a theme made for your screen size (see DISPLAY_SIZE inside theme.yaml)
-  THEME: 3.5inchTheme2
+#  THEME: 3.5inchTheme2
+  # THEME: "bash-dark-green-gpu"
+  # THEME: "wireview-dark-green"
+  # THEME: "CustomDataExample"
+  THEME: "bw-theme-landscape"
 
   # Hardware sensors reading
   # Choose the appropriate method for reading your hardware sensors:
@@ -71,7 +75,7 @@ display:
   # Display reverse: true/false
   # Set to true to reverse display orientation (landscape <-> reverse landscape, portrait <-> reverse portrait)
   # Note: Display basic orientation (portrait or landscape) is defined by the theme you have selected
-  DISPLAY_REVERSE: false
+  DISPLAY_REVERSE: true
 
   # Reset display on startup: true/false
   # By default, this program resets the display on startup, in case it is in a degraded state from previous runs.

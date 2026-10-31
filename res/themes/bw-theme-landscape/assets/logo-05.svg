@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210" height="58" viewBox="0 0 210 58">
+  <defs><style>
+      @font-face { font-family: 'GeForce'; src: url('GeForce-Bold.ttf'); }
+      @font-face { font-family: 'RBItalic'; src: url('Roboto-BlackItalic.ttf'); }
+    </style></defs>
+  <!-- White angular block behind AI -->
+  <polygon points="0,2 82,2 78,50 0,50" fill="#FFF"/>
+  <!-- AI in black on the white block -->
+  <text x="6" y="44" font-family="GeForce" font-size="44" fill="#000" letter-spacing="2">AI</text>
+  <!-- Tagline white on black -->
+  <g transform="skewX(-12)">
+    <text x="90" y="44" font-family="RBItalic" font-size="13" fill="#FFF">.zs.home</text>
+  </g>
+  <!-- Full-width underline -->
+  <rect x="0" y="52" width="210" height="5" fill="#FFF"/>
+</svg>
