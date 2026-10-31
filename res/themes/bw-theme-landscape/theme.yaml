@@ -93,7 +93,7 @@ static_text:
   HEADER_CPU:
     TEXT: "EPYC 7313 16 Core"
     X: 21
-    Y: 164
+    Y: 165
     FONT: roboto-mono/RobotoMono-Bold.ttf
     FONT_SIZE: 14
     FONT_COLOR: 0, 0, 0
@@ -193,6 +193,20 @@ STATS:
         BAR_COLOR: 0, 0, 0
         BAR_OUTLINE: True
         BACKGROUND_COLOR: 255,255,255   
+      LINE_GRAPH:
+        SHOW: True
+        X: 12
+        Y: 227
+        WIDTH: 218
+        HEIGHT: 18
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        HISTORY_SIZE: 109
+        LINE_COLOR: 0, 0, 0
+        LINE_WIDTH: 2
+        AXIS: False
+        BACKGROUND_COLOR: 255, 255, 255
+
 
   GPU:
     INTERVAL: 3
@@ -346,8 +360,7 @@ STATS:
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
         FONT_SIZE: 12
         FONT_COLOR: 0, 0, 0
-        BACKGROUND_COLOR: 0, 100, 0
-        # BACKGROUND_IMAGE: background.png
+        BACKGROUND_IMAGE: background.png
         ALIGN: right
         ANCHOR: rb
     CpuLoad5:
